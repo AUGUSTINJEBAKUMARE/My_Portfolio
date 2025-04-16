@@ -1,0 +1,202 @@
+/* ProtoSem Page Specific Styles */
+.protosem-content {
+    padding: 50px 0;
+    min-height: calc(100vh - 100px);
+}
+
+.assignments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.assignment-card {
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.assignment-card:hover {
+    transform: translateY(-10px);
+}
+
+.assignment-image {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.assignment-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.assignment-card:hover .assignment-image img {
+    transform: scale(1.1);
+}
+
+.assignment-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.assignment-info h3 {
+    color: var(--light-text);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.assignment-info p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.assignment-info .btn {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+/* Assignment Detail Page Styles */
+.assignment-detail {
+    padding: 50px 0;
+    min-height: calc(100vh - 100px);
+}
+
+.assignment-header {
+    margin-bottom: 40px;
+}
+
+.assignment-header h1 {
+    color: var(--light-text);
+    margin-bottom: 15px;
+}
+
+.assignment-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    max-width: 800px;
+}
+
+.assignment-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.assignment-description {
+    color: var(--light-text);
+}
+
+.assignment-description h2 {
+    margin-bottom: 20px;
+    color: var(--light-text);
+}
+
+.assignment-description p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.assignment-description ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.assignment-description li {
+    margin-bottom: 10px;
+}
+
+.assignment-description a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.assignment-description a:hover {
+    text-decoration: underline;
+}
+
+.assignment-media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.assignment-image-full {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.assignment-image-full img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.assignment-video {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.assignment-video video {
+    width: 100%;
+    height: auto;
+}
+
+.assignment-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--light-text);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.pagination a:hover, .pagination a.active {
+    background: var(--primary-color);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .assignments-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .assignment-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .assignment-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .assignments-grid {
+        grid-template-columns: 1fr;
+    }
+}

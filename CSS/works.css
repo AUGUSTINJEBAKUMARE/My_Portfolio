@@ -1,0 +1,241 @@
+/* Works Page Specific Styles */
+.works-content {
+    padding: 50px 0;
+    min-height: calc(100vh - 100px);
+}
+
+.works-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--light-text);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+    margin: 0 10px;
+}
+
+.tab-btn:hover, .tab-btn.active {
+    background: var(--primary-color);
+}
+
+.tab-content {
+    position: relative;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Projects Styles */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-image {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-info h3 {
+    color: var(--light-text);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.project-info p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.project-tags span {
+    padding: 5px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--light-text);
+}
+
+.project-info .btn {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+/* Presentations Styles */
+.presentations-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.presentation-card {
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+}
+
+.presentation-preview {
+    flex: 1;
+    max-width: 60%;
+}
+
+.slideshow {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slides img {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.slideshow-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.slideshow-controls button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slideshow-controls button:hover {
+    background: var(--primary-color);
+}
+
+.presentation-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.presentation-info h3 {
+    color: var(--light-text);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.presentation-info p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.presentation-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 992px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .presentation-card {
+        flex-direction: column;
+    }
+    
+    .presentation-preview {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .works-tabs {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .presentation-actions {
+        flex-direction: column;
+    }
+}
