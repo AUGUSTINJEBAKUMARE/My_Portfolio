@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3: Gen AI-Creating Images from Text Descriptions | Portfolio</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/project3.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="IMAGES/Screenshot 2025-04-05 221932.png" alt="Logo">
+        </div>
+        <nav>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about (1).html">About</a></li>
+                <li><a href="protosem (1).html">ProtoSem</a></li>
+                <li><a href="works.html"class="active">Works</a></li>
+                <li><a href="skills (1).html">Skills</a></li>
+                <li><a href="others.html">Others</a></li>
+                <li><a href="contact (1).html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section with Gradient Background -->
+        <div class="project-hero">
+            <div class="container">
+                <h1>Project 3: Gen AI-Creating Images from Text Descriptions</h1>
+                <p class="project-subtitle">Build a system that can generate high-quality images based on textual prompts</p>
+                
+                <!-- Navigation Buttons -->
+                <div class="navigation-buttons">
+                    <a href="#abstract" class="nav-button">Abstract</a>
+                    <a href="#requirements" class="nav-button">Requirements</a>
+                    <a href="#introduction" class="nav-button">Introduction</a>
+                    <a href="#implementation" class="nav-button">Implementation</a>
+                    <a href="#hurdles" class="nav-button">Project Hurdles</a>
+                    <a href="#future-scope" class="nav-button">Future Scope</a>
+                    <a href="#conclusion" class="nav-button">Conclusion</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="content-section">
+            <div class="container">
+                <!-- Abstract Section -->
+                <section id="abstract" class="content-box">
+                    <h2>Abstract</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="author-info">
+                        <p><strong>Name:</strong> Augustin Jeba Kumar E</p>
+                        <p><strong>Roll Number:</strong> 61772241003</p>
+                        <p><strong>Department:</strong> Electrical and Electronics Engineering, 3rd Year</p>
+                        <p><strong>Institution:</strong> Government College of Engineering, Salem-11</p>
+                    </div>
+                    
+                    <div class="abstract-container">
+                        <p>This model is suggested to produce the photos that are provided in the text. This has the power to turn abstract images into actual ones. DALL-E is necessary for the conversion. Making artistic, realism-based graphics from the description will be enjoyable. Kotline and Java were used to create this Android application project.</p>
+                        
+                        <p>For this project, we employed a natural language description prompt. Through prompts, it generates visuals. This will help incorporate our many ideas and thoughts into the diagrammatic presentation. DALLE can be used for business endeavors such as advertising, publishing, selling, etc. It will display images of our choice, resulting in anthropomorphic imagery and the collaboration of unconnected thoughts.</p>
+                        
+                        <p>It is viable and produces believable items. We can turn our inventive thoughts into reality using this Android application project. It is user-friendly software with no visual problems. And we can't discover this fictitious picture generator on any search engine. This Android application project will generate an image in whatever size you want. And it does not affect image quality. A picture's quality size will be 256*256, 512*12, and 1024*1024. Based on the quality of our network, we may select a quality size. We must first ensure that the network infrastructure is in place before we can use this application.</p>
+                        
+                        <div class="keywords">
+                            <p><strong>Keywords:</strong> Diffusion Models, Energy-based Models, Visual generation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-image-container">
+                        <img src="IMAGES/maxresdefault.jpg" alt="Gen AI Text-to-Image Overview" class="project-image">
+                    </div>
+                </section>
+
+                <!-- System Requirements Section -->
+                <section id="requirements" class="content-box">
+                    <h2>System Requirements</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="requirements-container">
+                        <div class="requirement-card">
+                            <h3>Hardware Requirements</h3>
+                            <ul>
+                                <li>Intel processor i5 and above</li>
+                                <li>8 GB RAM</li>
+                                <li>500 GB hard disk</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="requirement-card">
+                            <h3>Software Requirements</h3>
+                            <ul>
+                                <li>Visual Studio Code</li>
+                                <li>Python 3.6</li>
+                                <li>Google Colab</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="requirement-card">
+                            <h3>Tools and Versions</h3>
+                            <ul>
+                                <li>PIL (Python Imaging Library)</li>
+                                <li>OPEN AI</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Introduction Section -->
+                <section id="introduction" class="content-box">
+                    <h2>Introduction</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="section-content">
+                        <p>OpenAI's DALL-E is a ground-breaking artificial intelligence program that can generate high-quality photographs from textual descriptions. This cutting-edge technology is a game changer in the world of picture production, with limitless applications in advertising, design, and even medicine.</p>
+                        
+                        <p>The procedure for employing DALL-E is straightforward. DALL-E creates a comparable picture based on a textual description provided by users. For example, if you wanted an image of a blue cat playing with a ball of yarn, you would describe it to DALL-E, and it would generate a unique image that matched your parameters.</p>
+                        
+                        <p>DALL-E's technology is built on powerful neural networks and machine learning algorithms that allow it to analyze text and create related visuals in seconds. The program is always learning and developing, so it will continue to create increasingly realistic and detailed photos over time.</p>
+                        
+                        <p>Overall, DALL-E is a power that has the potential to change the way we think about image production and design. Because of its ability to generate high-quality pictures from simple text descriptions, it opens up new avenues for innovation and creative expression in several enterprises.</p>
+                    </div>
+                    
+                   
+                    <div class="flowchart-container">
+                        <h3>Flow Chart</h3>
+                        <div class="flowchart-image">
+                            <img src="IMAGES/Picture5.jpg" alt="Gen AI Text-to-Image Flow Chart" class="flowchart-img">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Implementation Section -->
+                <section id="implementation" class="content-box">
+                    <h2>Code Implementation</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="code-explanation">
+                        <p>The implementation uses diffusion models from Hugging Face Hub to generate images from text descriptions. Below is the core code used in the project:</p>
+                    </div>
+                    
+                    <div class="code-container">
+                        <pre class="code-block"><code># diffusers is a hugging face page for using diffusion models from huggingface hub
+
+!pip install diffusers transformers gradio accelerate
+
+from diffusers import StableDiffusionPipeline
+import matplotlib.pyplot as plt
+import torch
+
+!pip show torch
+
+model_id1 = "dreamlike-art/dreamlike-diffusion-1.0"
+model_id2 = "stabilityai/stable-diffusion-xl-base-1.0"
+
+pipe = StableDiffusionPipeline.from_pretrained(model_id1, 
+torch_dtype=torch.float16, use_safetensors=True)
+pipe = pipe.to("cuda")
+
+prompt = """ Indian national flag flying """
+
+image = pipe(prompt).images[0]
+
+print("[PROMPT]: ",prompt)
+plt.imshow(image);
+plt.axis('off');</code></pre>
+                    </div>
+                    
+                    <div class="output-container">
+                        <h3>Output</h3>
+                        <div class="output-image">
+                            <img src="IMAGES/Picture6.png" alt="Indian Flag Generated Output" class="output-img">
+                        </div>
+                    </div>
+                    
+                    <div class="code-explanation">
+                        <h3>Working with Stable Diffusion parameters</h3>
+                        <ul>
+                            <li>Negative prompting</li>
+                            <li>num_inference_steps</li>
+                            <li>height</li>
+                            <li>weight</li>
+                            <li>num_images_per_prompt</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="code-container">
+                        <pre class="code-block"><code>def generate_image(pipe, prompt, params):
+  img = pipe(prompt, **params).images
+
+  num_images = len(img)
+  if num_images>1:
+    fig, ax = plt.subplots(nrows=1, ncols=num_images)
+    for i in range(num_images):
+      ax[i].imshow(img[i]);
+      ax[i].axis('off');
+
+  else:
+    fig = plt.figure()
+    plt.imshow(img[0]);
+    plt.axis('off');
+  plt.tight_layout()
+
+
+prompt = "dreamlike, beautiful girl playing the festival of colors, draped in traditional Indian attire, throwing colors"
+
+params = {}
+
+generate_image(pipe, prompt, params)
+
+#num inference steps
+params = {'num_inference_steps': 100}
+
+generate_image(pipe, prompt, params)
+
+#height width
+params = {'num_inference_steps': 100, 'width': 512, 'height': int(1.5*640)}
+
+generate_image(pipe, prompt, params)
+
+#num_images_per_prompt
+params = {'num_inference_steps': 100, 'num_images_per_prompt': 2}
+
+generate_image(pipe, prompt, params)
+
+# negative_prompt
+params = {'num_inference_steps': 100, 'num_images_per_prompt': 2, 'negative_prompt': 'ugly, distorted, low quality'}
+
+generate_image(pipe, prompt, params)</code></pre>
+                    </div>
+                    
+                    <div class="output-gallery">
+                        <h3>Output Gallery</h3>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="IMAGES/Picture7.png" alt="Holi Festival Output 1" class="gallery-img">
+                             
+                            </div>
+                            <div class="gallery-item">
+                                <img src="IMAGES/Screenshot 2025-04-04 215456.png" alt="Holi Festival Output 2" class="gallery-img">
+                               
+                            </div>
+                            <div class="gallery-item">
+                                <img src="IMAGES/Screenshot 2025-04-04 215508.png" alt="Holi Festival Output 3" class="gallery-img">
+                               
+                            </div>
+                           
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Project Hurdles Section -->
+                <section id="hurdles" class="content-box">
+                    <h2>Project Hurdles</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="hurdles-grid">
+                        <div class="hurdle-card">
+                            <div class="hurdle-icon">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <h3>Computational Resources</h3>
+                            <p>GPU acceleration is crucial, but Colab's free tier has limitations.</p>
+                        </div>
+                        
+                        <div class="hurdle-card">
+                            <div class="hurdle-icon">
+                                <i class="fas fa-puzzle-piece"></i>
+                            </div>
+                            <h3>Library Compatibility</h3>
+                            <p>Ensuring libraries like Pillow, numpy, and TensorFlow are compatible.</p>
+                        </div>
+                        
+                        <div class="hurdle-card">
+                            <div class="hurdle-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3>Model Size</h3>
+                            <p>Large models like GANs and diffusion models exceed Colab's memory.</p>
+                        </div>
+                        
+                        <div class="hurdle-card">
+                            <div class="hurdle-icon">
+                                <i class="fas fa-cloud-download-alt"></i>
+                            </div>
+                            <h3>Pre-trained Model Availability</h3>
+                            <p>Accessing pre-trained models can be challenging.</p>
+                        </div>
+                        
+                        <div class="hurdle-card">
+                            <div class="hurdle-icon">
+                                <i class="fas fa-font"></i>
+                            </div>
+                            <h3>Text Preprocessing</h3>
+                            <p>Handling special characters, punctuation, and font styles.</p>
+                        </div>
+                        
+                        <div class="hurdle-card">
+                            <div class="hurdle-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <h3>Image Quality</h3>
+                            <p>Resolution, aspect ratio, and artifact issues.</p>
+                        </div>
+                        
+                        <div class="hurdle-card">
+                            <div class="hurdle-icon">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            <h3>Runtime Disconnections</h3>
+                            <p>Colab's 12-hour limit and intermittent disconnections.</p>
+                        </div>
+                        
+                        <div class="hurdle-card">
+                            <div class="hurdle-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3>Dependency Installation</h3>
+                            <p>Installing required libraries and versions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="hurdles-solution">
+                        <p>Optimizing code, using smaller models, and leveraging Colab's paid tier can mitigate these issues.</p>
+                    </div>
+                </section>
+
+                <!-- Output Screenshots Section -->
+                
+
+                <!-- Future Scope Section -->
+                <section id="future-scope" class="content-box">
+                    <h2>Future Scope</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="future-scope-container">
+                        <div class="scope-category">
+                            <h3>Applications</h3>
+                            <ul class="scope-list">
+                                <li>
+                                    <span class="list-icon"><i class="fas fa-palette"></i></span>
+                                    <span class="list-text"><strong>Art and Design:</strong> Generate high-quality art, designs, and graphics from text descriptions.</span>
+                                </li>
+                                <li>
+                                    <span class="list-icon"><i class="fas fa-ad"></i></span>
+                                    <span class="list-text"><strong>Advertising and Marketing:</strong> Create personalized ads and marketing materials from text-based briefs.</span>
+                                </li>
+                                <li>
+                                    <span class="list-icon"><i class="fas fa-graduation-cap"></i></span>
+                                    <span class="list-text"><strong>Education:</strong> Create interactive, visual learning materials from text-based curriculum.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="scope-category">
+                            <h3>Developments</h3>
+                            <ul class="scope-list">
+                                <li>
+                                    <span class="list-icon"><i class="fas fa-expand"></i></span>
+                                    <span class="list-text"><strong>Improved Resolution and Quality:</strong> Higher-resolution images and more realistic textures.</span>
+                                </li>
+                                <li>
+                                    <span class="list-icon"><i class="fas fa-brain"></i></span>
+                                    <span class="list-text"><strong>Increased Context Understanding:</strong> Better comprehension of nuances in text descriptions.</span>
+                                </li>
+                                <li>
+                                    <span class="list-icon"><i class="fas fa-film"></i></span>
+                                    <span class="list-text"><strong>Multi-Modal Input:</strong> Accepting audio, video, or other media as input.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="scope-category">
+                            <h3>Emerging Trends</h3>
+                            <ul class="scope-list">
+                                <li>
+                                    <span class="list-icon"><i class="fas fa-wave-square"></i></span>
+                                    <span class="list-text"><strong>Diffusion Models:</strong> Generating images through iterative refinement.</span>
+                                </li>
+                                <li>
+                                    <span class="list-icon"><i class="fas fa-project-diagram"></i></span>
+                                    <span class="list-text"><strong>Transformers:</strong> Applying transformer architectures to text-to-image tasks.</span>
+                                </li>
+                                <li>
+                                    <span class="list-icon"><i class="fas fa-network-wired"></i></span>
+                                    <span class="list-text"><strong>Generative Adversarial Networks (GANs):</strong> Improving image quality and diversity.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conclusion Section -->
+                <section id="conclusion" class="content-box">
+                    <h2>Conclusion</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="conclusion-content">
+                        <p>The integration of Gen AI in text-to-image models has revolutionized the field of visual content creation, enabling unprecedented levels of automation, creativity, and precision. With the ability to generate high-quality images from text descriptions, Gen AI has far-reaching implications for various industries, including art, design, advertising, education, and entertainment.</p>
+                    </div>
+                    
+                    <div class="future-research">
+                        <h3>Future Research Directions</h3>
+                        <ul class="research-list">
+                            <li>
+                                <span class="list-icon"><i class="fas fa-file-alt"></i></span>
+                                <span class="list-text">Multimodal input (text, audio, video)</span>
+                            </li>
+                            <li>
+                                <span class="list-icon"><i class="fas fa-paint-brush"></i></span>
+                                <span class="list-text">Style transfer and image-to-image translation</span>
+                            </li>
+                            <li>
+                                <span class="list-icon"><i class="fas fa-cube"></i></span>
+                                <span class="list-text">3D modeling and animation</span>
+                            </li>
+                            <li>
+                                <span class="list-icon"><i class="fas fa-bolt"></i></span>
+                                <span class="list-text">Real-time image generation</span>
+                            </li>
+                            <li>
+                                <span class="list-icon"><i class="fas fa-lightbulb"></i></span>
+                                <span class="list-text">Explainable AI (XAI) for text-to-image models</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                   
+                </section>
+
+                <!-- Navigation Bottom -->
+                <div class="project-navigation-bottom">
+                    <a href="project2.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Project</a>
+                    <a href="works.html" class="btn btn-secondary"><i class="fas fa-th"></i> All Works</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-to-top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 Portfolio. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/main.js"></script>
+    <script src="JS/project3.js"></script>
+</body>
+</html>
+

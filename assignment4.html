@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4: Understanding Sensor Behind Things | Portfolio</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/assignment4.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="IMAGES/Screenshot 2025-04-05 221932.png" alt="Logo">
+        </div>
+        <nav>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about (1).html">About</a></li>
+                <li><a href="protosem (1).html"class="active">ProtoSem</a></li>
+                <li><a href="works.html">Works</a></li>
+                <li><a href="skills (1).html">Skills</a></li>
+                <li><a href="others.html">Others</a></li>
+                <li><a href="contact (1).html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section with Gradient Background -->
+        <div class="assignment-hero">
+            <div class="container">
+                <h1>Assignment 4: Understanding Sensor Behind Things</h1>
+                
+                <!-- Navigation Buttons -->
+                <div class="navigation-buttons">
+                    <a href="#sensor-selection" class="nav-button">Sensor Selection</a>
+                    <a href="#datasheet" class="nav-button">Datasheet</a>
+                    <a href="#working-principle" class="nav-button">Working Principle</a>
+                    <a href="#voltage-calculation" class="nav-button">Voltage Calculation</a>
+                    <a href="#hardware-setup" class="nav-button">Hardware Setup</a>
+                    <a href="#arduino-setup" class="nav-button">Arduino Setup</a>
+                    <a href="#database-connection" class="nav-button">Database Connection</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="content-section">
+            <div class="container">
+                <!-- Step 1: Selection of Sensor -->
+                <section id="sensor-selection" class="content-box">
+                    <h2>Step 1: Selection of Sensor</h2>
+                    <div class="section-divider"></div>
+                    <div class="sensor-info">
+                        <div class="sensor-image">
+                            <img src="IMAGES/protosem/assignment 4/IMG_20250328_185015.jpg" alt="ACS712-20A Current Sensor Module" class="sensor-img">
+                        </div>
+                        <div class="sensor-details">
+                            <p><strong>Chosen Sensor:</strong> ACS712-20A (Current Sensor Module)</p>
+                            <p>The ACS712 current sensor is capable of measuring both AC and DC currents with high precision. It provides an analog voltage output that is proportional to the measured current.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step 2: Datasheet Specifications -->
+                <section id="datasheet" class="content-box">
+                    <h2>Step 2: Datasheet Specifications (ACS712-20A)</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="table-container">
+                        <table class="specs-table">
+                            <thead>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Parameter</th>
+                                    <th>ACS712-20A</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr>
+                                    <td>1</td>
+                                    <td>Supply Voltage</td>
+                                    <td>5V DC</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Current Sensing Range</td>
+                                    <td>±20A</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Sensitivity</td>
+                                    <td>100 mV/A</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Output Voltage</td>
+                                    <td>2.5V (at 0A) ± (Sensitivity × Measured Current)</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Response Time</td>
+                                    <td>5 μs</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Operating Temperature</td>
+                                    <td>-40°C to +150°C</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>Noise (typical)</td>
+                                    <td>11 mV RMS</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Step 3: Working Principle -->
+                <section id="working-principle" class="content-box">
+                    <h2>Step 3: Understanding the Working Principle of ACS712</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="principle-container">
+                        <h3>What is ACS712?</h3>
+                        <p>ACS712 is a current sensor that can measure both AC and DC currents. It provides an analog voltage output proportional to the measured current.</p>
+                        
+                        <h3>How Does ACS712 Work?</h3>
+                        
+                        <div class="principle-card">
+                            <h4>Hall Effect Principle (The Science Behind It)</h4>
+                            <ul>
+                                <li>The ACS712 sensor works based on the Hall Effect, which is a fundamental principle in physics.</li>
+                                <li>The Hall Effect states that when an electric current flows through a conductor, it creates a magnetic field around it.</li>
+                                <li>If you place a special material called a Hall element in this magnetic field, it generates a small voltage across it.</li>
+                                <li>The strength of this voltage depends on how much current is passing through the conductor.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <h4>What Happens Inside the ACS712 Sensor?</h4>
+                            <ol>
+                                <li><strong>Current Flow</strong> – The ACS712 has an internal conductor through which current flows.</li>
+                                <li><strong>Magnetic Field Creation</strong> – The flowing current produces a magnetic field.</li>
+                                <li><strong>Hall Effect Activation</strong> – A Hall sensor inside the ACS712 detects this magnetic field.</li>
+                                <li><strong>Voltage Output</strong> – The Hall sensor converts the magnetic field strength into a voltage signal.</li>
+                                <li><strong>Amplification & Output</strong> – The small voltage signal is amplified and given as an analog voltage output (Vout).</li>
+                            </ol>
+                        </div>
+                        
+                     
+                        
+                        <h3>Applications of ACS712-20A</h3>
+                        <ul class="applications-list">
+                            <li>Power Monitoring – Measuring AC/DC current in home appliances.</li>
+                            <li>Battery Management Systems – Monitoring current in charging circuits.</li>
+                            <li>Motor Control Systems – Preventing overcurrent damage in motors.</li>
+                            <li>Overcurrent Protection – Used in electrical safety circuits.</li>
+                            <li>Industrial Automation – Measuring and controlling power in automated systems.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Step 4: Voltage Calculation -->
+                <section id="voltage-calculation" class="content-box">
+                    <h2>Step 4: How to Calculate the Output Voltage?</h2>
+                    <div class="section-divider"></div>
+                    
+                    <p>The output voltage (Vout) is directly related to the measured current. The formula is:</p>
+                    
+                    <div class="formula">
+                        <p>Vout = 2.5V ± (100mV × Measured Current)</p>
+                    </div>
+                    
+                    <ul>
+                        <li>At 0A current, the output voltage is 2.5V (this is called the "zero-current voltage").</li>
+                        <li>When positive current flows, the voltage increases.</li>
+                        <li>When negative current flows, the voltage decreases.</li>
+                    </ul>
+                    
+                    <div class="example-card">
+                        <h3>Example Calculation:</h3>
+                        <div class="example">
+                            <p><strong>If 10A current is flowing, the output voltage will be:</strong></p>
+                            <p>Vout = 2.5V + (100mV × 10) = 3.5V</p>
+                        </div>
+                        <div class="example">
+                            <p><strong>If -10A current is flowing, the output voltage will be:</strong></p>
+                            <p>Vout = 2.5V - (100mV × 10) = 1.5V</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step 5: Hardware Setup -->
+                <section id="hardware-setup" class="content-box">
+                    <h2>Step 5: Hardware Setup & Power Requirements</h2>
+                    <div class="section-divider"></div>
+                    
+                    <h3>Using DSO (Digital Storage Oscilloscope)</h3>
+                    
+                    <div class="challenges-container">
+                        <h4>Challenges Faced:</h4>
+                        <ol>
+                            <li>Circuit Connection Issues – Ensuring tight connections to avoid noise in the signal.</li>
+                            <li>Adjusting Probes – Properly setting up probe sensitivity for accurate waveform display.</li>
+                            <li>Scaling Issues – Adjusting voltage and time scales for clear waveform observation.</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="observations-container">
+                        <h4>Observations:</h4>
+                        <ul>
+                            <li><strong>Waveform Observed:</strong> Sine Wave</li>
+                            <li><strong>Reason:</strong> The output voltage varies periodically due to the changing nature of the measured current, resulting in a sine wave pattern on the oscilloscope.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="circuit-container">
+                        <h3>Circuit Diagram:</h3>
+                        <div class="circuit-image">
+                            <img src="IMAGES/protosem/assignment 4/WhatsApp Image 2025-03-27 at 15.50.44_7bb2661c.jpg" alt="Circuit Diagram for ACS712 Setup" class="circuit-img">
+                        </div>
+                    </div>
+                    
+                    <div class="connection-container">
+                        <h3>Circuit Connection:</h3>
+                        <div class="connection-image">
+                            <img src="IMAGES/protosem/assignment 4/IMG_20250327_104441.jpg" alt="Physical Circuit Connection" class="connection-img">
+                        </div>
+                    </div>
+                    
+                    <div class="steps-container">
+                        <h3>Step-by-Step Circuit Connection Details</h3>
+                        
+                        <div class="step-card">
+                            <h4>1. Power Source (Battery)</h4>
+                            <ul>
+                                <li>Battery Positive (+) → Connect to LED Anode (+)</li>
+                                <li>Battery Negative (-) → Connect to ACS712 Current Sensor Input Terminal (-)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="step-card">
+                            <h4>2. Load (LED or Any Electrical Device)</h4>
+                            <ul>
+                                <li>LED Cathode (-) → Connect to ACS712 Current Sensor Input Terminal (+)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="step-card">
+                            <h4>3. ACS712 Current Sensor Module</h4>
+                            <ul>
+                                <li>Input Terminal (-) → Connect to Battery Negative (-)</li>
+                                <li>Input Terminal (+) → Connect to LED Cathode (-)</li>
+                                <li>DSO Probe Tip (Positive) → ACS712 OUT Pin</li>
+                                <li>DSO Ground Clip (Negative) → ACS712 GND Pin</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="waveform-container">
+                        <h3>Output Waveform:</h3>
+                        <div class="waveform-image">
+                            <img src="IMAGES/protosem/assignment 4/IMG_20250327_104350.jpg" alt="Output Waveform on DSO" class="waveform-img">
+                            <img src="IMAGES/protosem/assignment 4/IMG_20250327_104415.jpg" alt="Output Waveform on DSO" class="waveform-img">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step 6: Arduino Setup -->
+                <section id="arduino-setup" class="content-box">
+                    <h2>Step 6: Using Arduino UNO & Serial Monitor</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="arduino-connection">
+                        <h3>Circuit Connection:</h3>
+                        <ul>
+                            <li>VCC → 5V (Arduino UNO)</li>
+                            <li>GND → GND (Arduino UNO)</li>
+                            <li>OUT (Analog Output) → A0 (Arduino UNO)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="code-container">
+                        <h3>Code:</h3>
+                        <pre class="code-block"><code>// Define the sensor pin
+const int sensorPin = A0;
+
+// ACS712-20A Specifications
+const float VCC = 5.0;  // Arduino operating voltage (V)
+const int ADC_Resolution = 1023; // 10-bit ADC resolution
+const float Sensitivity = 0.100;  // Sensitivity for ACS712-20A (100mV per A)
+const float ZeroCurrentVoltage = 2.5; // Output voltage at 0A (V)
+
+void setup() {
+    Serial.begin(9600); // Start Serial Monitor
+}
+
+void loop() {
+    // Read sensor voltage
+    int sensorValue = analogRead(sensorPin);
+    float voltage = sensorValue * (VCC / ADC_Resolution); // Convert ADC value to voltage
+
+    // Convert voltage to current
+    float current = (voltage - ZeroCurrentVoltage) / Sensitivity;  
+
+    // Print values to Serial Monitor
+    Serial.print("Voltage: ");
+    Serial.print(voltage, 3);
+    Serial.print(" V  |  Current: ");
+    Serial.print(current, 3);
+    Serial.println(" A");
+
+    delay(1000); // Delay for readability
+}</code></pre>
+                    </div>
+                    
+                    <div class="observations-container">
+                        <h3>Observations in Serial Monitor:</h3>
+                        <ul>
+                            <li>The voltage fluctuates in a triangular wave pattern, indicating variations in the measured current.</li>
+                            <li>The waveform shape depends on the resistance value in the circuit, which affects the current flow and sensor response.</li>
+                            <li>A slight variation of ±10 units is observed between the readings on the DSO and the Serial Monitor. This minor discrepancy is normal and occurs due to manual measurement variations and the limitations of ADC resolution in the Arduino.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="output-container">
+                        <h3>Output:</h3>
+                        <div class="output-image">
+                            <img src="IMAGES/protosem/assignment 4/Screenshot 2025-03-27 163326.png" alt="Arduino Serial Monitor Output" class="output-img">
+                            <img src="IMAGES/protosem/assignment 4/Screenshot 2025-03-27 163143.png" alt="Arduino Serial Monitor Output" class="output-img">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step 7: Database Connection -->
+                <section id="database-connection" class="content-box">
+                    <h2>Step 7: Connecting ACS712 to a Live Database Using ESP8266</h2>
+                    <div class="section-divider"></div>
+                    
+                    <p>Since Arduino Uno lacks built-in WiFi support, I switched to the ESP8266 module, which has WiFi connectivity. This allows real-time current monitoring by storing data in a live database such as Firebase or an Excel sheet.</p>
+                    
+                    <div class="challenges-container">
+                        <h3>Challenges Faced and Solutions</h3>
+                        
+                        <div class="challenge-card">
+                            <h4>1. Installing ESP8266 Board Library</h4>
+                            <ul>
+                                <li><strong>Problem:</strong> The ESP8266 board library is not pre-installed in the Arduino IDE.</li>
+                                <li><strong>Solution:</strong> I manually downloaded and installed the ESP8266 board library to add support in the Arduino IDE.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="challenge-card">
+                            <h4>2. Port Detection Issue</h4>
+                            <ul>
+                                <li><strong>Problem:</strong> After installation, the ESP8266 was not detected in the device manager, and the COM port was missing.</li>
+                                <li><strong>Solution:</strong> I referred to multiple resources and finally installed the correct USB-to-Serial driver to make the board recognizable.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="challenge-card">
+                            <h4>3. Fatal Error During Code Upload</h4>
+                            <ul>
+                                <li><strong>Problem:</strong> While uploading the code, a fatal error occurred, preventing successful flashing.</li>
+                                <li><strong>Solution:</strong> I uninstalled the old driver and installed the latest driver for ESP8266, which resolved the issue.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="challenge-card">
+                            <h4>4. Differences in Coding (ESP8266 vs. Arduino)</h4>
+                            <ul>
+                                <li><strong>Problem:</strong> Writing and understanding code for ESP8266 was slightly different compared to standard Arduino programming.</li>
+                                <li><strong>Solution:</strong> I learned about WiFi connections, HTTP requests, and Firebase integration to adapt to ESP8266 coding.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="challenge-card">
+                            <h4>5. Firebase Syncing Issue</h4>
+                            <ul>
+                                <li><strong>Problem:</strong> The code ran successfully, but the values were not appearing in Firebase.</li>
+                                <li><strong>Solution:</strong> I verified the Firebase credentials and connection settings to ensure proper data transmission.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="circuit-container">
+                        <h3>Circuit Diagram:</h3>
+                        <div class="circuit-image">
+                            <img src="IMAGES/protosem/assignment 4/1_bdTnbhi5IkDWbEFhZaJBsQ@2x.jpg.webp" alt="ESP8266 Circuit Connection" class="circuit-img">
+                        </div>
+                    </div>
+                    
+                    <div class="code-container">
+                        <h3>Code:</h3>
+                        <pre class="code-block"><code>#include <ESP8266WiFi.h>
+#include <FirebaseESP8266.h>
+
+// Replace with your Firebase project credentials
+#define FIREBASE_HOST "https://current-senor-data-default-rtdb.asia-southeast1.firebasedatabase.app/"  // Firebase Database URL
+#define FIREBASE_AUTH "AIzaSyBTit7h2U_3xRPAQfgpCxszcG5cxMrxc04"   // Firebase Authentication Key
+
+// Replace with your WiFi credentials
+#define WIFI_SSID "Augustin"
+#define WIFI_PASSWORD "Ajk161004"
+
+// Initialize Firebase and WiFi objects
+FirebaseData firebaseData;
+FirebaseAuth auth;
+FirebaseConfig config;
+
+// Define the ACS712 sensor pin
+const int sensorPin = A0;
+
+// ACS712-20A Specifications
+const float VCC = 5.0;  // ESP8266 operates at 3.3V, but sensor works with 5V
+const int ADC_Resolution = 1023; // 10-bit ADC resolution
+const float Sensitivity = 0.100;  // Sensitivity for ACS712-20A (100mV per A)
+const float ZeroCurrentVoltage = 2.5; // Output voltage at 0A (V)
+
+void setup() {
+    Serial.begin(115200);
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    Serial.print("Connecting to WiFi");
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(1000);
+        Serial.print(".");
+    }
+    Serial.println("\nWiFi Connected!");
+
+    // Configure Firebase
+    config.host = FIREBASE_HOST;
+    config.signer.tokens.legacy_token = FIREBASE_AUTH;
+    Firebase.begin(&config, &auth);
+    Firebase.reconnectWiFi(true);
+    Serial.println("Connected to Firebase");
+}
+
+void loop() {
+    // Read sensor voltage
+    int sensorValue = analogRead(sensorPin);
+    float voltage = sensorValue * (VCC / ADC_Resolution); // Convert ADC value to voltage
+
+    // Convert voltage to current
+    float current = (voltage - ZeroCurrentVoltage) / Sensitivity;
+
+    // Print values in Serial Monitor
+    Serial.print("Voltage: ");
+    Serial.print(voltage, 3);
+    Serial.print(" V  |  Current: ");
+    Serial.print(current, 3);
+    Serial.println(" A");
+
+    // Send data to Firebase
+    if (Firebase.setFloat(firebaseData, "/CurrentSensor/Voltage", voltage)) {
+        Serial.println("Voltage Data Sent Successfully!");
+    } else {
+        Serial.println("Failed to Send Voltage Data: " + firebaseData.errorReason());
+    }
+
+    if (Firebase.setFloat(firebaseData, "/CurrentSensor/Current", current)) {
+        Serial.println("Current Data Sent Successfully!");
+    } else {
+        Serial.println("Failed to Send Current Data: " + firebaseData.errorReason());
+    }
+
+    delay(2000); // Delay for 2 seconds before next reading
+}</code></pre>
+                    </div>
+                    
+                    <div class="output-container">
+                        <h3>OUTPUT:</h3>
+                        <div class="output-image">
+                            <img src="IMAGES/protosem/assignment 4/Screenshot 2025-03-28 210514.png" alt="Firebase Output" class="output-img">
+                            <img src="IMAGES/protosem/assignment 4/Screenshot 2025-04-03 181433.png" alt="Firebase Output" class="output-img">
+                        </div>
+                    </div>
+                    
+                    <div class="graph-container">
+                        <h3>GRAPH:</h3>
+                        <div class="graph-image">
+                            <img src="IMAGES/protosem/assignment 4/Screenshot 2025-04-03 182932.png" alt="Data Visualization Graph" class="graph-img">
+                        </div>
+                    </div>
+                    
+                    <div class="code-container">
+                        <h3>Coding For Connecting Firebase Data with Google Sheets:</h3>
+                        <pre class="code-block"><code>function importFirebaseData() {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var url = "https://current-senor-data-default-rtdb.asia-southeast1.firebasedatabase.app/"; // Firebase Database URL
+    var response = UrlFetchApp.fetch(url);
+    var json = response.getContentText();
+    var data = JSON.parse(json);
+     
+    sheet.clear(); // Clears previous data
+    sheet.appendRow(["Timestamp", "Voltage (V)", "Current (A)"]); // Headers
+    var timestamp = new Date();
+    sheet.appendRow([timestamp, data.Voltage, data.Current]);
+}</code></pre>
+                    </div>
+                </section>
+
+                <!-- Navigation Bottom -->
+                <div class="assignment-navigation-bottom">
+                    <a href="assignment3.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Previous Assignment</a>
+                    <a href="protosem (1).html" class="btn btn-secondary">Back to ProtoSem <i class="fas fa-th"></i></a>
+                    <a href="assignment5.html" class="btn btn-primary">Next Assignment <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+<!-- Scroll to Top Button -->
+<button id="scrollToTopBtn" class="scroll-to-top-btn">
+    <i class="fas fa-arrow-up"></i>
+</button>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 Portfolio. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/main.js"></script>
+    <script src="JS/assignment4.js"></script>
+</body>
+</html>
+
