@@ -1,0 +1,859 @@
+/* Assignment 6 Specific Styles */
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #60a5fa;
+  --accent-color: #10b981;
+  --light-text: #f8fafc;
+  --dark-text: #1e293b;
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --card-hover-bg: rgba(255, 255, 255, 0.2);
+  --section-padding: 30px;
+  --border-radius: 10px;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: var(--light-text);
+  background-color: #0f172a;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.assignment-hero {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #0ea5e9 100%);
+  padding: 60px 0;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.assignment-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--light-text);
+}
+
+.assignment-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.nav-button {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--light-text);
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+/* Content Section */
+.content-section {
+  padding: 20px 0 60px;
+}
+
+/* Content Box Style */
+.content-box {
+  background-color: rgba(30, 41, 59, 0.7);
+  border-radius: var(--border-radius);
+  padding: var(--section-padding);
+  margin-bottom: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.content-box h2 {
+  color: var(--light-text);
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.section-divider {
+  height: 4px;
+  width: 60px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+
+.content-box h3 {
+  color: var(--secondary-color);
+  font-size: 1.4rem;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.content-box p {
+  color: var(--light-text);
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+/* Overview Image */
+.pcb-overview-image {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.overview-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Workflow Steps */
+.workflow-steps {
+  margin: 30px 0;
+}
+
+.step-card {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding: 25px;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateX(10px);
+  background-color: var(--card-hover-bg);
+}
+
+.step-number {
+  background-color: var(--primary-color);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 25px;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content h3 {
+  color: var(--secondary-color);
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.step-content ul {
+  margin-left: 20px;
+}
+
+.step-content li {
+  margin-bottom: 8px;
+}
+
+.step-image {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.workflow-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+/* PCB Types Grid */
+.pcb-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.pcb-type-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.pcb-type-card:hover {
+  transform: translateY(-5px);
+  background-color: var(--card-hover-bg);
+}
+
+.pcb-type-image {
+  height: 180px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.pcb-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pcb-type-card h3 {
+  color: var(--secondary-color);
+  margin: 20px 20px 10px;
+  font-size: 1.2rem;
+}
+
+.pcb-type-card p {
+  margin: 0 20px 20px;
+  font-size: 0.9rem;
+}
+
+/* Materials Grid */
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.material-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.material-card:hover {
+  transform: translateY(-5px);
+  background-color: var(--card-hover-bg);
+}
+
+.material-card.featured {
+  border: 2px solid var(--accent-color);
+}
+
+.material-header {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+}
+
+.material-header h3 {
+  color: var(--secondary-color);
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+}
+
+.material-composition {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.material-content {
+  padding: 20px;
+}
+
+.material-properties h4,
+.material-applications h4 {
+  color: var(--light-text);
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.material-properties ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.material-properties li {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.material-applications p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* Tools Grid */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.tool-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  background-color: var(--card-hover-bg);
+}
+
+.tool-image {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.tool-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.tool-card h3 {
+  color: var(--secondary-color);
+  margin: 20px 20px 15px;
+  font-size: 1.2rem;
+}
+
+.tool-specs {
+  padding: 0 20px 20px;
+}
+
+.tool-specs p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+/* Conversions Section */
+.conversions-section {
+  margin-top: 40px;
+}
+
+.conversions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.conversion-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  text-align: center;
+}
+
+.conversion-card h4 {
+  color: var(--secondary-color);
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.conversion-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.conversion-card li {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+/* Wegster Machine Section */
+.wegster-intro {
+  margin-bottom: 30px;
+}
+
+.wegster-image {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.machine-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Setup Steps */
+.setup-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.setup-step {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.setup-step:hover {
+  transform: translateY(-5px);
+}
+
+.setup-icon {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+}
+
+.setup-step h4 {
+  color: var(--light-text);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.setup-step p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* Milling Process */
+.milling-bits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.bit-info {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+}
+
+.bit-info h4 {
+  color: var(--secondary-color);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.bit-info p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* Autolevel Process */
+.autolevel-process {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 25px 0;
+}
+
+.autolevel-process h3 {
+  margin-top: 0;
+}
+
+.autolevel-process ol {
+  margin-left: 20px;
+}
+
+.autolevel-process li {
+  margin-bottom: 8px;
+}
+
+/* Export Process */
+.export-steps {
+  margin: 25px 0;
+}
+
+.export-step {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.export-step h4 {
+  color: var(--secondary-color);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.export-step p {
+  margin-bottom: 15px;
+}
+
+.mods-image {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.interface-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+/* Final Output */
+.final-output {
+  margin-top: 30px;
+}
+
+.output-image {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.final-pcb-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Mini Continuity Tester Project */
+.project-intro blockquote {
+  background-color: var(--card-bg);
+  border-left: 4px solid var(--accent-color);
+  padding: 20px;
+  margin: 20px 0;
+  font-style: italic;
+  font-size: 1.1rem;
+  border-radius: var(--border-radius);
+}
+
+.design-step {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.design-step h4 {
+  color: var(--secondary-color);
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.design-step ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.design-step li {
+  margin-bottom: 5px;
+}
+
+.schematic-image,
+.layout-image,
+\
+.3
+d-view-image,
+.assembled-image {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.design-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Assembly and Testing */
+.assembly-testing {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 25px 0;
+}
+
+.assembly-testing h3 {
+  margin-top: 0;
+}
+
+.assembly-testing ul {
+  margin-left: 20px;
+}
+
+.assembly-testing li {
+  margin-bottom: 5px;
+}
+
+/* Project Conclusion */
+.project-conclusion {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 25px 0;
+}
+
+.project-conclusion h3 {
+  margin-top: 0;
+  color: var(--secondary-color);
+}
+
+/* Video Container */
+.video-container {
+  margin: 30px 0;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video-container video {
+  width: 100%;
+  max-height: 450px;
+  display: block;
+}
+
+.video-description {
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Navigation Bottom */
+.assignment-navigation-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+}
+
+.btn-primary:hover {
+  background-color: #4f46e5;
+  transform: translateY(-3px);
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--light-text);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Scroll to Top Button */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top-btn:hover {
+  background-color: #4f46e5;
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 992px) {
+  .assignment-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .pcb-types-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .materials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .scroll-to-top-btn {
+    width: 45px;
+    height: 45px;
+    bottom: 25px;
+    right: 25px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .assignment-hero {
+    padding: 40px 0;
+  }
+
+  .assignment-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .assignment-subtitle {
+    font-size: 1rem;
+  }
+
+  .nav-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .content-box {
+    padding: 20px;
+  }
+
+  .content-box h2 {
+    font-size: 1.6rem;
+  }
+
+  .step-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .step-number {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .pcb-types-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .materials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .setup-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .assignment-navigation-bottom {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .scroll-to-top-btn {
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .assignment-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .navigation-buttons {
+    gap: 10px;
+  }
+
+  .nav-button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .content-box h2 {
+    font-size: 1.4rem;
+  }
+
+  .content-box h3 {
+    font-size: 1.2rem;
+  }
+
+  .conversions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .milling-bits {
+    grid-template-columns: 1fr;
+  }
+}
