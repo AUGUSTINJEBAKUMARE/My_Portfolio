@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 7: Robot Simulation in ROS2 & Gazebo | Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/assignment7.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="profile/Screenshot 2025-04-05 221932.png" alt="Logo">
+        </div>
+        <nav>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about (1).html">About</a></li>
+                <li><a href="protosem (1).html"class="active">ProtoSem</a></li>
+                <li><a href="works.html">Works</a></li>
+                <li><a href="skills (1).html">Skills</a></li>
+                <li><a href="others.html">Others</a></li>
+                <li><a href="contact (1).html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="assignment-hero">
+            <div class="container">
+                <h1>Assignment 7: Creating and Simulating a Robot in ROS2 & Gazebo</h1>
+                <p class="assignment-subtitle">Using URDF and Fusion 360 for Robot Design and Simulation</p>
+                
+                <!-- Navigation Buttons -->
+                <div class="navigation-buttons">
+                    <a href="#robot-design" class="nav-button">Robot Design</a>
+                    <a href="#ros2-setup" class="nav-button">ROS2 Setup</a>
+                    <a href="#urdf-creation" class="nav-button">URDF Creation</a>
+                    <a href="#rviz-launch" class="nav-button">RViz Launch</a>
+                    <a href="#gazebo-spawn" class="nav-button">Gazebo Spawn</a>
+                    <a href="#ros2-control" class="nav-button">ROS2 Control</a>
+                    <a href="#teleoperation" class="nav-button">Teleoperation</a>
+                    <a href="#video-demo" class="nav-button">Video Demo</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="content-section">
+            <div class="container">
+                <!-- Robot Design Section -->
+                <section id="robot-design" class="content-box">
+                    <h2>1. Robot Design in Fusion 360</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="design-overview">
+                        <h3>Overview</h3>
+                        <p>The robot was first modeled in Fusion 360 with the following components:</p>
+                        
+                        <div class="components-grid">
+                            <div class="component-card">
+                                <div class="component-icon">
+                                    <i class="fas fa-cube"></i>
+                                </div>
+                                <h4>Main Chassis</h4>
+                                <p>The central body structure of the robot</p>
+                            </div>
+                            
+                            <div class="component-card">
+                                <div class="component-icon">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <h4>Two Side Wheels</h4>
+                                <p>For motion control and propulsion</p>
+                            </div>
+                            
+                            <div class="component-card">
+                                <div class="component-icon">
+                                    <i class="fas fa-dot-circle"></i>
+                                </div>
+                                <h4>Two Caster Wheels</h4>
+                                <p>Rotate freely in all directions for balance</p>
+                            </div>
+                        </div>
+                        
+                        <div class="robot-design-image">
+                            <img src="ROS/Screenshot (9).png" alt="Robot Design in Fusion 360" class="design-image">
+                        </div>
+                    </div>
+                    
+                    <div class="export-process">
+                        <h3>Exporting Model</h3>
+                        <ul>
+                            <li>Export each part (e.g., chassis, wheels, caster wheels) as STL or STEP files</li>
+                            <li>Ensure that the orientation is consistent:</li>
+                        </ul>
+                        
+                        <div class="coordinate-system">
+                            <div class="axis-card">
+                                <div class="axis-icon x-axis">X</div>
+                                <span>Forward</span>
+                            </div>
+                            <div class="axis-card">
+                                <div class="axis-icon y-axis">Y</div>
+                                <span>Left</span>
+                            </div>
+                            <div class="axis-card">
+                                <div class="axis-icon z-axis">Z</div>
+                                <span>Up</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ROS2 Setup Section -->
+                <section id="ros2-setup" class="content-box">
+                    <h2>2. Setting Up the ROS2 Workspace</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="setup-steps">
+                        <div class="step-item">
+                            <h3>Create and Initialize Workspace</h3>
+                            <div class="code-container">
+                                <pre class="code-block"><code>mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws/src
+ros2 pkg create --build-type ament_cmake &lt;robot_description_package&gt;</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item">
+                            <h3>Build and Source</h3>
+                            <div class="code-container">
+                                <pre class="code-block"><code>cd ~/ros2_ws
+colcon build
+source install/setup.bash</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- URDF Creation Section -->
+                <section id="urdf-creation" class="content-box">
+                    <h2>3. Create URDF Files Using Xacro</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="urdf-info">
+                        <ul>
+                            <li>Use Xacro (XML Macros) to simplify and modularize your URDF file</li>
+                            <li>File naming should follow: robot_name.urdf.xacro (e.g., tea_bot.urdf.xacro)</li>
+                            <li>Create a urdf directory inside your package and place the .xacro files and mesh files there</li>
+                        </ul>
+                        
+                        <div class="coordinate-convention">
+                            <h3>Coordinate Convention</h3>
+                            <div class="convention-grid">
+                                <div class="convention-item">
+                                    <span class="axis-label">X</span>
+                                    <span>→ Forward</span>
+                                </div>
+                                <div class="convention-item">
+                                    <span class="axis-label">Y</span>
+                                    <span>→ Left</span>
+                                </div>
+                                <div class="convention-item">
+                                    <span class="axis-label">Z</span>
+                                    <span>→ Up</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="urdf-structure">
+                        <h3>4. URDF Structure and Link Setup</h3>
+                        
+                        <div class="structure-section">
+                            <h4>Base Link</h4>
+                            <p>Must be the root link and placed at the origin (0,0,0) for simplicity.</p>
+                            <div class="code-container">
+                                <pre class="code-block"><code>&lt;link name="base_link"&gt;
+  &lt;visual&gt;...&lt;/visual&gt;
+  &lt;collision&gt;...&lt;/collision&gt;
+  &lt;inertial&gt;...&lt;/inertial&gt;
+&lt;/link&gt;</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="structure-section">
+                            <h4>Connecting Wheels and Casters</h4>
+                            <p>Each wheel is added as a separate link and connected via a joint:</p>
+                            <div class="code-container">
+                                <pre class="code-block"><code>&lt;joint name="left_wheel_joint" type="continuous"&gt;
+  &lt;parent link="base_link"/&gt;
+  &lt;child link="left_wheel"/&gt;
+  &lt;origin xyz="0 0.175 0" rpy="0 0 0"/&gt;
+  &lt;axis xyz="0 0 1"/&gt;
+&lt;/joint&gt;</code></pre>
+                            </div>
+                            
+                            <p>For right wheel, set axis as:</p>
+                            <div class="code-container">
+                                <pre class="code-block"><code>&lt;axis xyz="0 0 -1"/&gt;</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="structure-section">
+                            <h4>Inertia</h4>
+                            <p>Either manually add:</p>
+                            <div class="code-container">
+                                <pre class="code-block"><code>&lt;inertial&gt;
+  &lt;origin xyz="..." rpy="..."/&gt;
+  &lt;mass value="..."/&gt;
+  &lt;inertia ixx="..." iyy="..." izz="..." .../&gt;
+&lt;/inertial&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- RViz Launch Section -->
+                <section id="rviz-launch" class="content-box">
+                    <h2>5. Launching in RViz (URDF Preview)</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="rviz-setup">
+                        <h3>Run URDF with robot_state_publisher</h3>
+                        <p>Create rsp.launch.py:</p>
+                        
+                        <div class="code-container">
+                            <pre class="code-block"><code>from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            output='screen',
+            parameters=[{'robot_description': Command(['xacro ', PathJoinSubstitution([
+                FindPackageShare('your_package'),
+                'urdf',
+                'robot.urdf.xacro'
+            ])])}]
+        )
+    ])</code></pre>
+                        </div>
+                        
+                        <p>Then run:</p>
+                        <div class="code-container">
+                            <pre class="code-block"><code>ros2 launch &lt;your_package&gt; rsp.launch.py</code></pre>
+                        </div>
+                        
+                        <div class="note-section">
+                            <h4>Note:</h4>
+                            <p>If the robot doesn't appear correctly:</p>
+                            <ul>
+                                <li>Click "Reset" in RViz</li>
+                                <li>Relaunch the file</li>
+                                <li>Verify all paths and file names</li>
+                            </ul>
+                        </div>
+                        
+                    
+                    </div>
+                </section>
+
+                <!-- Gazebo Spawn Section -->
+                <section id="gazebo-spawn" class="content-box">
+                    <h2>6. Spawning Robot into Gazebo</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="gazebo-spawn">
+                        <h3>Command to spawn:</h3>
+                        <div class="code-container">
+                            <pre class="code-block"><code>ros2 run gazebo_ros spawn_entity.py -entity my_robot \
+  -file ~/ros2_ws/src/&lt;your_package&gt;/urdf/robot.urdf \
+  -x 0 -y 0 -z 0</code></pre>
+                        </div>
+                        
+                        <div class="gazebo-image">
+                            <img src="ROS/WhatsApp Image 2025-06-27 at 20.26.15_2430af8b.jpg" alt="Robot in Gazebo" class="gazebo-screenshot">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ROS2 Control Section -->
+                <section id="ros2-control" class="content-box">
+                    <h2>7. Adding ros2_control for Motion</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="control-setup">
+                        <h3>Add Control Plugin to URDF:</h3>
+                        <div class="code-container">
+                            <pre class="code-block"><code>&lt;gazebo&gt;
+  &lt;plugin name="diff_drive_controller" filename="libgazebo_ros2_control.so"&gt;
+    &lt;left_wheel&gt;left_wheel_joint&lt;/left_wheel&gt;
+    &lt;right_wheel&gt;right_wheel_joint&lt;/right_wheel&gt;
+    &lt;wheel_separation&gt;0.35&lt;/wheel_separation&gt;
+    &lt;wheel_radius&gt;0.05&lt;/wheel_radius&gt;
+    &lt;command_topic&gt;cmd_vel&lt;/command_topic&gt;
+  &lt;/plugin&gt;
+&lt;/gazebo&gt;</code></pre>
+                        </div>
+                        
+                        <h3>Set Control Parameters:</h3>
+                        <p>You may also define:</p>
+                        <ul>
+                            <li>Max torque</li>
+                            <li>Acceleration</li>
+                            <li>PID gains</li>
+                            <li>In the robot control YAML or inside the plugin</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Teleoperation Section -->
+                <section id="teleoperation" class="content-box">
+                    <h2>8. Teleoperation Control</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="teleop-setup">
+                        <h3>Install teleop_twist_keyboard:</h3>
+                        <div class="code-container">
+                            <pre class="code-block"><code>sudo apt install ros-&lt;distro&gt;-teleop-twist-keyboard</code></pre>
+                        </div>
+                        
+                        <h3>Run the teleop node:</h3>
+                        <div class="code-container">
+                            <pre class="code-block"><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard</code></pre>
+                        </div>
+                        
+                        <div class="control-instructions">
+                            <h4>Control Instructions:</h4>
+                            <ul>
+                                <li>Use WASD keys to move the robot</li>
+                                <li>Ensure cmd_vel is the subscribed topic in your plugin</li>
+                            </ul>
+                        </div>
+                        
+                        <h3>9. Friction Settings (Optional)</h3>
+                        <p>To enhance movement:</p>
+                        <ul>
+                            <li>Set different friction coefficients for left/right wheels</li>
+                            <li>Use SDF format or Gazebo &lt;surface&gt; tag in URDF</li>
+                        </ul>
+                        
+                        <div class="code-container">
+                            <pre class="code-block"><code>&lt;surface&gt;
+  &lt;friction&gt;
+    &lt;ode&gt;
+      &lt;mu&gt;1.0&lt;/mu&gt;
+      &lt;mu2&gt;1.0&lt;/mu2&gt;
+    &lt;/ode&gt;
+  &lt;/friction&gt;
+&lt;/surface&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Video Demo Section -->
+                <section id="video-demo" class="content-box">
+                    <h2>Output Video Demonstration</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="video-container">
+                        <video controls>
+                            <source src="ROS/Gazebo Simulation.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    
+                    <div class="video-description">
+                        <p>Watch the complete robot simulation process from URDF creation to teleoperation control in Gazebo, demonstrating the robot's movement capabilities and sensor integration.</p>
+                    </div>
+                    
+                    <div class="simulation-features">
+                        <h3>Simulation Features Demonstrated:</h3>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <h4>Robot Visualization</h4>
+                                <p>Complete 3D robot model with accurate physics</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <h4>Teleoperation Control</h4>
+                                <p>Real-time keyboard control using WASD keys</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h4>Differential Drive</h4>
+                                <p>Realistic wheel-based movement simulation</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h4>RViz Visualization</h4>
+                                <p>Real-time robot state and sensor data display</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Bottom -->
+                <div class="assignment-navigation-bottom">
+                    <a href="assignment6.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Assignment</a>
+                    <a href="protosem.html" class="btn btn-secondary"><i class="fas fa-th"></i> Back to ProtoSem</a>
+                    <a href="assignment8.html" class="btn btn-primary">Next Assignment <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-to-top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Portfolio. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/assignment7.js"></script>
+</body>
+</html>

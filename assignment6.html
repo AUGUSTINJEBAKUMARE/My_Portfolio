@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 6: PCB Production | Portfolio</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="css/assignment6.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="profile/Screenshot 2025-04-05 221932.png" alt="Logo">
+        </div>
+        <nav>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about (1).html">About</a></li>
+                <li><a href="protosem (1).html"class="active">ProtoSem</a></li>
+                <li><a href="works.html">Works</a></li>
+                <li><a href="skills (1).html">Skills</a></li>
+                <li><a href="others.html">Others</a></li>
+                <li><a href="contact (1).html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="assignment-hero">
+            <div class="container">
+                <h1>Assignment 6: Introduction to PCB Production</h1>
+                <p class="assignment-subtitle">From Design to Manufacturing - Complete PCB Workflow</p>
+                
+                <!-- Navigation Buttons -->
+                <div class="navigation-buttons">
+                    <a href="#introduction" class="nav-button">Introduction</a>
+                    <a href="#workflow" class="nav-button">Workflow</a>
+                    <a href="#pcb-types" class="nav-button">PCB Types</a>
+                    <a href="#materials" class="nav-button">Materials</a>
+                    <a href="#tools" class="nav-button">Tools & Bits</a>
+                    <a href="#wegster" class="nav-button">Wegster Machine</a>
+                    <a href="#continuity-tester" class="nav-button">Mini Project</a>
+                    <a href="#video-demo" class="nav-button">Video Demo</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="content-section">
+            <div class="container">
+                <!-- Introduction Section -->
+                <section id="introduction" class="content-box">
+                    <h2>Introduction to PCB Production</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="intro-content">
+                        <p>The electronics manufacturing process involves assembling electronic components and parts through electronic and mechanical assembly to create products that meet design requirements. Printed Circuit Boards (PCBs) are the backbone of most electronic devices, providing the necessary electrical connections between components.</p>
+                        
+                        <div class="pcb-overview-image">
+                            <img src="PCB ASSIGNMENTS/istockphoto-1307839840-612x612.jpg" alt="PCB Production Overview" class="overview-image">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PCB Production Workflow Section -->
+                <section id="workflow" class="content-box">
+                    <h2>PCB Production Workflow</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="workflow-steps">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Design Preparation</h3>
+                                <ul>
+                                    <li><strong>Design Files:</strong> Process begins with design files, typically in SVG format for front copper and edge cuts</li>
+                                    <li><strong>File Conversion:</strong> SVG file is converted into G-code using Mods CE (Community Edition)</li>
+                                    <li><strong>Design Review:</strong> Check PCB pad design, trace width, and component locations for defects</li>
+                                </ul>
+                                <div class="step-image">
+                                    <img src="PCB ASSIGNMENTS/Screenshot 2025-06-19 104543.png" alt="Design Preparation" class="workflow-image">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Material Selection</h3>
+                                <ul>
+                                    <li><strong>Types of PCBs:</strong> Single-sided, double-sided, multi-layer, and flexible boards</li>
+                                    <li><strong>Substrate Materials:</strong> Choice of substrate material is crucial (FR1 to FR4)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>PCB Fabrication</h3>
+                                <ul>
+                                    <li><strong>Milling:</strong> G-code file controls CNC milling machine to engrave circuit traces</li>
+                                    <li><strong>Drilling:</strong> Holes for through-hole components are drilled as needed</li>
+                                    <li><strong>Cleaning:</strong> Board is cleaned to remove dust and debris</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Component Assembly</h3>
+                                <ul>
+                                    <li><strong>Solder Paste Application:</strong> Applied using a stencil</li>
+                                    <li><strong>Component Placement:</strong> Surface-mount components placed using pick-and-place machine</li>
+                                    <li><strong>Reflow Soldering:</strong> Board passes through reflow oven</li>
+                                    <li><strong>Through-Hole Assembly:</strong> Components inserted and soldered</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h3>Testing and Finalization</h3>
+                                <ul>
+                                    <li><strong>Functional Testing:</strong> Board is powered and tested for correct operation</li>
+                                    <li><strong>Documentation:</strong> Comprehensive Bill of Materials (BOM) and schematics maintained</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PCB Types Section -->
+                <section id="pcb-types" class="content-box">
+                    <h2>Types of PCBs</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="pcb-types-grid">
+                        <div class="pcb-type-card">
+                            <div class="pcb-type-image">
+                                <img src="PCB ASSIGNMENTS/images.jpeg" alt="Single-Sided PCB" class="pcb-image">
+                            </div>
+                            <h3>Single-Sided PCBs</h3>
+                            <p>One layer of substrate with a conductive copper layer on one side. Components are mounted on one side, with traces on the opposite side.</p>
+                        </div>
+                        
+                        <div class="pcb-type-card">
+                            <div class="pcb-type-image">
+                                <img src="PCB ASSIGNMENTS/double-sided-pcb-2.png" alt="Double-Sided PCB" class="pcb-image">
+                            </div>
+                            <h3>Double-Sided PCBs</h3>
+                            <p>Copper layers on both sides of the substrate, allowing for more complex circuits.</p>
+                        </div>
+                        
+                        <div class="pcb-type-card">
+                            <div class="pcb-type-image">
+                                <img src="PCB ASSIGNMENTS/0_GWh1Gmu52a6UpXyu.jpg" alt="Multi-Layer PCB" class="pcb-image">
+                            </div>
+                            <h3>Multi-Layer PCBs</h3>
+                            <p>Multiple copper layers separated by insulating material, used for advanced electronics.</p>
+                        </div>
+                        
+                        <div class="pcb-type-card">
+                            <div class="pcb-type-image">
+                                <img src="PCB ASSIGNMENTS/Role-of-Flexible-PCBs-for-IoT-device-1024x683.png.webp" alt="Flexible PCB" class="pcb-image">
+                            </div>
+                            <h3>Flexible PCBs</h3>
+                            <p>Made from flexible materials, used in applications where the board needs to bend.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Materials Section -->
+                <section id="materials" class="content-box">
+                    <h2>PCB Substrate Materials: FR1 to FR4</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="materials-grid">
+                        <div class="material-card">
+                            <div class="material-header">
+                                <h3>FR1</h3>
+                                <span class="material-composition">Paper + Phenolic Resin</span>
+                            </div>
+                            <div class="material-content">
+                                <div class="material-properties">
+                                    <h4>Properties:</h4>
+                                    <ul>
+                                        <li>Fire retardant</li>
+                                        <li>Good mechanical strength</li>
+                                        <li>Low cost</li>
+                                        <li>Easy to handle</li>
+                                    </ul>
+                                </div>
+                                <div class="material-applications">
+                                    <h4>Applications:</h4>
+                                    <p>Single-layer PCBs, low-cost consumer electronics</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="material-card">
+                            <div class="material-header">
+                                <h3>FR2</h3>
+                                <span class="material-composition">Cotton Paper + Phenolic Resin</span>
+                            </div>
+                            <div class="material-content">
+                                <div class="material-properties">
+                                    <h4>Properties:</h4>
+                                    <ul>
+                                        <li>Enhanced over FR1</li>
+                                        <li>Still low cost</li>
+                                        <li>Suitable for less demanding applications</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="material-card">
+                            <div class="material-header">
+                                <h3>FR3</h3>
+                                <span class="material-composition">Woven Fiberglass + Epoxy Resin</span>
+                            </div>
+                            <div class="material-content">
+                                <div class="material-properties">
+                                    <h4>Properties:</h4>
+                                    <ul>
+                                        <li>Improved electrical properties</li>
+                                        <li>Higher temperature resistance (up to 170°C)</li>
+                                        <li>Lower loss tangent</li>
+                                    </ul>
+                                </div>
+                                <div class="material-applications">
+                                    <h4>Applications:</h4>
+                                    <p>Legacy industrial electronics, oscilloscopes, missile guidance systems</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="material-card featured">
+                            <div class="material-header">
+                                <h3>FR4</h3>
+                                <span class="material-composition">Woven Fiberglass + Brominated Epoxy</span>
+                            </div>
+                            <div class="material-content">
+                                <div class="material-properties">
+                                    <h4>Properties:</h4>
+                                    <ul>
+                                        <li>Excellent electrical and mechanical properties</li>
+                                        <li>High temperature resistance (130–180°C)</li>
+                                        <li>Low loss tangent</li>
+                                        <li>Self-extinguishing</li>
+                                        <li>High flexural strength</li>
+                                    </ul>
+                                </div>
+                                <div class="material-applications">
+                                    <h4>Applications:</h4>
+                                    <p>Industry standard for most modern electronics, including consumer, automotive, and aerospace products</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tools and Bits Section -->
+                <section id="tools" class="content-box">
+                    <h2>PCB Milling Tools & Bits</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-image">
+                                <img src="PCB ASSIGNMENTS/IMG_20250618_175206.jpg" alt="V-Shape Engraving Bits" class="tool-img">
+                            </div>
+                            <h3>V-Shape Engraving/Isolation Bits</h3>
+                            <div class="tool-specs">
+                                <p><strong>Common Angles:</strong> 10°, 20°, 30°, 45°, 60°</p>
+                                <p><strong>Main Feature:</strong> V-bit angle determines width and depth of cut</p>
+                                <p><strong>Application:</strong> Isolation routing to separate copper traces</p>
+                                <p><strong>Purpose:</strong> Avoids chemical etching by mechanically removing unwanted copper</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-image">
+                                <img src="PCB ASSIGNMENTS/IMG_20250618_175302.jpg" alt="Drill Bits" class="tool-img">
+                            </div>
+                            <h3>Drill Bits (0.3mm to 1.2mm)</h3>
+                            <div class="tool-specs">
+                                <p><strong>Main Feature:</strong> Defined by diameter, not cutting angle</p>
+                                <p><strong>Application:</strong> Drilling via holes and component lead holes</p>
+                                <p><strong>Size Selection:</strong> Based on pin diameter of components</p>
+                                <p><strong>Purpose:</strong> Essential for electrical connections between layers</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-image">
+                                <img src="PCB ASSIGNMENTS/IMG_20250618_175326.jpg" alt="Spiral Drill Bits" class="tool-img">
+                            </div>
+                            <h3>Spiral Drill Bits (1.05mm to 1.3mm)</h3>
+                            <div class="tool-specs">
+                                <p><strong>Application:</strong> Drilling larger holes for mounting screws or connector pins</p>
+                                <p><strong>Purpose:</strong> Supports mechanical assembly and interface connectors</p>
+                                <p><strong>Requirement:</strong> Used where strong, stable holes are needed</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-image">
+                                <img src="PCB ASSIGNMENTS/IMG_20250618_175355.jpg" alt="Flat End Mill Bits" class="tool-img">
+                            </div>
+                            <h3>Flat End Mill Bits</h3>
+                            <div class="tool-specs">
+                                <p><strong>Main Feature:</strong> Flat tip, various diameters available</p>
+                                <p><strong>Application:</strong> Cutting PCB shape and removing large copper areas</p>
+                                <p><strong>Purpose:</strong> Milling straight, flat-bottom paths for board outlines</p>
+                                <p><strong>Function:</strong> Defines board size or cuts individual PCBs from panel</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="conversions-section">
+                        <h3>Basic Conversions</h3>
+                        <div class="conversions-grid">
+                            <div class="conversion-card">
+                                <h4>1 mil</h4>
+                                <ul>
+                                    <li>= 0.001 inches</li>
+                                    <li>= 0.0254 millimeters (mm)</li>
+                                </ul>
+                            </div>
+                            <div class="conversion-card">
+                                <h4>1 inch</h4>
+                                <ul>
+                                    <li>= 1,000 mils</li>
+                                    <li>= 25.4 millimeters (mm)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Wegster Machine Section -->
+                <section id="wegster" class="content-box">
+                    <h2>Wegster PCB Milling Machine</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="wegster-intro">
+                        <p>The Wegster PCB milling machine is a compact desktop CNC designed specifically for rapid PCB prototyping. It allows users to fabricate circuit boards by milling copper-clad boards instead of traditional chemical etching.</p>
+                        
+                        <div class="wegster-image">
+                            <img src="PCB ASSIGNMENTS/Screenshot 2025-06-18 153808.png" alt="Wegster PCB Milling Machine" class="machine-image">
+                        </div>
+                    </div>
+                    
+                    <div class="machine-setup">
+                        <h3>Setting Up the Wegster CNC Machine</h3>
+                        <div class="setup-steps">
+                            <div class="setup-step">
+                                <div class="setup-icon">
+                                    <i class="fas fa-usb"></i>
+                                </div>
+                                <h4>Connect via USB</h4>
+                                <p>Use the USB cable to connect the Wegster CNC machine to your laptop. Ensure the cable is securely plugged in and the machine is properly powered on.</p>
+                            </div>
+                            
+                            <div class="setup-step">
+                                <div class="setup-icon">
+                                    <i class="fas fa-power-off"></i>
+                                </div>
+                                <h4>Switch On the Machine</h4>
+                                <p>Locate the power switch on the machine and turn it on. The machine will initialize, and indicators may light up to show it is receiving power.</p>
+                            </div>
+                            
+                            <div class="setup-step">
+                                <div class="setup-icon">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <h4>Open Wegster App</h4>
+                                <p>Launch the Wegster controlling software or designated app on your laptop. The software will search for the device if it is not already connected.</p>
+                            </div>
+                            
+                            <div class="setup-step">
+                                <div class="setup-icon">
+                                    <i class="fas fa-wifi"></i>
+                                </div>
+                                <h4>Device Detection</h4>
+                                <p>After connecting the USB cable, the software will display a message that the device is detected. A blue LED on the machine will start blinking, indicating it is ready.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="milling-process">
+                        <h3>Milling Process</h3>
+                        <div class="milling-bits">
+                            <div class="bit-info">
+                                <h4>0.4 mm Flat Endmill</h4>
+                                <p>Used for milling wider traces or removing larger areas of copper. Suitable for roughing out the board or cutting the main outline.</p>
+                            </div>
+                            <div class="bit-info">
+                                <h4>0.1 mm 20° V Bit</h4>
+                                <p>Most commonly used bit in the lab for milling PCB traces. Allows for very fine, precise isolation of traces due to its small diameter and sharp tip.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="autolevel-process">
+                            <h3>Setting Origin and Auto Level</h3>
+                            <ol>
+                                <li>Place the PCB board securely on the machine bed</li>
+                                <li>Check autolevel with the bit - manually jog the Z axis to bring the bit close to the board surface</li>
+                                <li>Set the origin by pressing the "0" button when the bit touches the board</li>
+                                <li>Run autolevel measurement to ensure consistent milling depth</li>
+                                <li>Begin the milling process</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="export-process">
+                        <h3>Exporting and Preparing PCB Design</h3>
+                        <div class="export-steps">
+                            <div class="export-step">
+                                <h4>1. Export Front Copper Layer as SVG</h4>
+                                <p>After completing your PCB design in KiCad, export the front copper layer as an SVG file.</p>
+                            </div>
+                            
+                            <div class="export-step">
+                                <h4>2. Export Edge Cut Layer as SVG</h4>
+                                <p>Similarly, export the edge cut (board outline) layer as a separate SVG file.</p>
+                            </div>
+                            
+                            <div class="export-step">
+                                <h4>3. Open Mods CE Website</h4>
+                                <p>Go to the Mods CE website and open the appropriate workflow for PCB milling.</p>
+                                <div class="mods-image">
+                                    <img src="PCB ASSIGNMENTS/Screenshot 2025-06-27 195040.png" alt="Mods CE Interface" class="interface-image">
+                                </div>
+                            </div>
+                            
+                            <div class="export-step">
+                                <h4>4. Process Front Copper Layer</h4>
+                                <p>Upload the front copper layer SVG file into Mods CE. Set the bit angle to 45 degrees and the offset to 10. Click Send Calculate to generate G-code.</p>
+                            </div>
+                            
+                            <div class="export-step">
+                                <h4>5. Process Edge Cut Layer</h4>
+                                <p>Upload the edge cut SVG file and select the mill outline 1/32 option. Generate G-code for the edge cut.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="final-output">
+                        <h3>Final Output</h3>
+                        <p>From testing, it was determined that the minimum spacing between traces should be at least 17 mils and the trace widths should be a minimum of 10 mils.</p>
+                        <div class="output-image">
+                            <img src="PCB ASSIGNMENTS/IMG-20250627-WA0020.jpg" alt="Final PCB Output" class="final-pcb-image">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Mini Continuity Tester Project Section -->
+                <section id="continuity-tester" class="content-box">
+                    <h2>PCB Design Experience: Mini Continuity Tester</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="project-intro">
+                        <blockquote>"Great innovations often begin with solving the simplest problems."</blockquote>
+                        
+                        <h3>Introduction</h3>
+                        <p>During our work with printed circuit boards (PCBs), we frequently needed to check for continuity between tracks and wires. Searching for a multimeter every time was inconvenient. Inspired by this challenge, we decided to design a simple, compact, and user-friendly tool: a Mini Continuity Tester.</p>
+                    </div>
+                    
+                    <div class="design-process">
+                        <h3>Design Process</h3>
+                        
+                        <div class="design-step">
+                            <h4>1. Schematic Design</h4>
+                            <p>We began by creating a schematic using KiCad. The schematic included:</p>
+                            <ul>
+                                <li>Battery: To provide power (coin cell or AAA battery)</li>
+                                <li>Resistor: To limit current and protect the LED</li>
+                                <li>LED: To visually indicate continuity</li>
+                            </ul>
+                            <div class="schematic-image">
+                                <img src="PCB ASSIGNMENTS/Screenshot 2025-06-27 201207.png" alt="Continuity Tester Schematic" class="design-image">
+                            </div>
+                        </div>
+                        
+                        <div class="design-step">
+                            <h4>2. PCB Layout</h4>
+                            <p>After finalizing the schematic, we moved on to the PCB layout. We carefully placed the components to ensure a compact and efficient design. The layout included:</p>
+                            <ul>
+                                <li>Battery holder footprint</li>
+                                <li>Resistor and LED placement</li>
+                                <li>Test probes or pads for easy probing</li>
+                            </ul>
+                            <div class="layout-image">
+                                <img src="PCB ASSIGNMENTS/Screenshot 2025-06-27 201225.png" alt="PCB Layout" class="design-image">
+                            </div>
+                        </div>
+                        
+                        <div class="design-step">
+                            <h4>3. 3D View</h4>
+                            <p>KiCad's 3D viewer allowed us to visualize the final product before fabrication. This helped us ensure that all components would fit properly and that the design was user-friendly.</p>
+                            <div class="3d-view-image">
+                                <img src="PCB ASSIGNMENTS/Screenshot 2025-06-27 201239.png" alt="3D View of PCB" class="design-image">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="assembly-testing">
+                        <h3>Assembly and Testing</h3>
+                        <p>We soldered the components onto the PCB:</p>
+                        <ul>
+                            <li>Battery holder</li>
+                            <li>Resistor</li>
+                            <li>LED</li>
+                            <li>Test probes</li>
+                        </ul>
+                        
+                        <p>After assembly, we tested the device by probing various points on our PCBs. The LED lit up whenever there was continuity, confirming a successful connection.</p>
+                        
+                        <div class="assembled-image">
+                            <img src="PCB ASSIGNMENTS/IMG-20250627-WA0021.jpg" alt="Assembled Continuity Tester" class="design-image">
+                        </div>
+                    </div>
+                    
+                    <div class="project-conclusion">
+                        <h3>Conclusion</h3>
+                        <p>This project was a great learning experience in PCB design, fabrication, and problem-solving. The Mini Continuity Tester is now a handy tool in our lab, saving us time and effort during PCB assembly and troubleshooting.</p>
+                    </div>
+                </section>
+
+                <!-- Video Demo Section -->
+                <section id="video-demo" class="content-box">
+                    <h2>Video Demonstration</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="video-container">
+                        <video controls>
+                            <source src="PCB ASSIGNMENTS/WhatsApp Video 2025-06-25 at 21.30.33_7e257bd8.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    
+                    <div class="video-description">
+                        <p>Watch the complete PCB production process from design to final testing, including the Wegster machine operation and the Mini Continuity Tester in action.</p>
+                    </div>
+                </section>
+
+                <!-- Navigation Bottom -->
+                <div class="assignment-navigation-bottom">
+                    <a href="assignment5.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Assignment</a>
+                    <a href="protosem.html" class="btn btn-secondary"><i class="fas fa-th"></i> Back to ProtoSem</a>
+                    <a href="assignment7.html" class="btn btn-primary">Next Assignment <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-to-top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Portfolio. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/main.js"></script>
+    <script src="JS/assignment6.js"></script>
+</body>
+</html>

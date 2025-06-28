@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 8: IoT-Based RFID Access Control System | Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/assignment8.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+   <header>
+        <div class="logo">
+            <img src="profile/Screenshot 2025-04-05 221932.png" alt="Logo">
+        </div>
+        <nav>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about (1).html">About</a></li>
+                <li><a href="protosem (1).html"class="active">ProtoSem</a></li>
+                <li><a href="works.html">Works</a></li>
+                <li><a href="skills (1).html">Skills</a></li>
+                <li><a href="others.html">Others</a></li>
+                <li><a href="contact (1).html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="assignment-hero">
+            <div class="container">
+                <h1>Assignment 8: IoT-Based RFID Access Control System</h1>
+                <p class="assignment-subtitle">Real-Time Logging to Google Sheets with ESP32 and RC522</p>
+                
+                <!-- Navigation Buttons -->
+                <div class="navigation-buttons">
+                    <a href="#components" class="nav-button">Components</a>
+                    <a href="#rfid-interface" class="nav-button">RFID Interface</a>
+                    <a href="#lcd-display" class="nav-button">LCD Display</a>
+                    <a href="#servo-control" class="nav-button">Servo Control</a>
+                    <a href="#rtc-module" class="nav-button">RTC Module</a>
+                    <a href="#google-sheets" class="nav-button">Google Sheets</a>
+                    <a href="#flowchart" class="nav-button">System Flow</a>
+                    <a href="#video-demo" class="nav-button">Video Demo</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="content-section">
+            <div class="container">
+                <!-- Components Required Section -->
+                <section id="components" class="content-box">
+                    <h2>Components Required</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="components-overview">
+                        <div class="hardware-components">
+                            <h3>Hardware Components</h3>
+                            <div class="components-grid">
+                                <div class="component-item">
+                                    <div class="component-icon">
+                                        <i class="fas fa-microchip"></i>
+                                    </div>
+                                    <h4>ESP32 Development Board</h4>
+                                    <p>Wi-Fi & Bluetooth-enabled microcontroller</p>
+                                </div>
+                                
+                                <div class="component-item">
+                                    <div class="component-icon">
+                                        <i class="fas fa-id-card"></i>
+                                    </div>
+                                    <h4>RC522 RFID Module</h4>
+                                    <p>For reading RFID tags/cards</p>
+                                </div>
+                                
+                                <div class="component-item">
+                                    <div class="component-icon">
+                                        <i class="fas fa-tv"></i>
+                                    </div>
+                                    <h4>16x2 LCD Display (I2C)</h4>
+                                    <p>For showing UID and access status</p>
+                                </div>
+                                
+                                <div class="component-item">
+                                    <div class="component-icon">
+                                        <i class="fas fa-cog"></i>
+                                    </div>
+                                    <h4>Servo Motor (SG90)</h4>
+                                    <p>For gate/door control mechanism</p>
+                                </div>
+                                
+                                <div class="component-item">
+                                    <div class="component-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <h4>DS1302 RTC Module</h4>
+                                    <p>For accurate timestamp logging</p>
+                                </div>
+                                
+                                <div class="component-item">
+                                    <div class="component-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <h4>LED & Buzzer</h4>
+                                    <p>For visual/audio feedback</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="software-components">
+                            <h3>Software & Online Services</h3>
+                            <div class="software-grid">
+                                <div class="software-item">
+                                    <i class="fas fa-code"></i>
+                                    <span>Arduino IDE (for programming ESP32)</span>
+                                </div>
+                                <div class="software-item">
+                                    <i class="fab fa-google"></i>
+                                    <span>Google Sheets & Google Apps Script</span>
+                                </div>
+                                <div class="software-item">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>Wi-Fi Network (for internet connectivity)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- RFID Interface Section -->
+                <section id="rfid-interface" class="content-box">
+                    <h2>Interface RFID with ESP32</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="interface-setup">
+                        <h3>RC522 RFID Wiring</h3>
+                        <div class="wiring-table">
+                            <table class="connection-table">
+                                <thead>
+                                    <tr>
+                                        <th>RC522 Pin</th>
+                                        <th>ESP32 Pin</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>SDA</td>
+                                        <td>GPIO5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SCK</td>
+                                        <td>GPIO18</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MOSI</td>
+                                        <td>GPIO23</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MISO</td>
+                                        <td>GPIO19</td>
+                                    </tr>
+                                    <tr>
+                                        <td>RST</td>
+                                        <td>GPIO4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>VCC</td>
+                                        <td>3.3V</td>
+                                    </tr>
+                                    <tr>
+                                        <td>GND</td>
+                                        <td>GND</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="additional-connections">
+                            <h4>LED Connection:</h4>
+                            <ul>
+                                <li>Anode (long leg) → 220Ω resistor → GPIO2</li>
+                                <li>Cathode → GND</li>
+                            </ul>
+                            
+                            <h4>Buzzer Connection:</h4>
+                            <ul>
+                                <li>Positive (+) → GPIO15</li>
+                                <li>Negative (–) → GND</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="circuit-image">
+                            <img src="assignment 8/Picture1.png" alt="RFID Circuit Connection" class="circuit-img">
+                        </div>
+                    </div>
+                    
+                    <div class="basic-code">
+                        <h3>Basic RFID Code</h3>
+                        <div class="code-container">
+                            <pre class="code-block"><code>#include &lt;SPI.h&gt;  
+#include &lt;MFRC522.h&gt;
+
+#define SS_PIN 5  
+#define RST_PIN 4  
+#define LED_PIN 2  
+#define BUZZER_PIN 15
+
+MFRC522 mfrc522(SS_PIN, RST_PIN);
+
+byte validUID[4] = {0xDE, 0xAD, 0xBE, 0xEF};
+
+void setup() {  
+  Serial.begin(115200);  
+  SPI.begin(); 
+  mfrc522.PCD_Init();  
+  pinMode(LED_PIN, OUTPUT);  
+  pinMode(BUZZER_PIN, OUTPUT); 
+}
+
+void loop() {  
+  if (!mfrc522.PICC_IsNewCardPresent() || !mfrc522.PICC_ReadCardSerial()) { 
+    return; 
+  }
+
+  if (isUIDMatch(mfrc522.uid.uidByte, validUID)) { 
+    blinkAndBeep(LED_PIN, BUZZER_PIN, 1, 200);  
+    Serial.println("Valid User"); 
+  } else { 
+    blinkAndBeep(LED_PIN, BUZZER_PIN, 3, 200);  
+    Serial.println("Unknown User"); 
+  }
+
+  mfrc522.PICC_HaltA(); 
+}
+
+bool isUIDMatch(byte *a, byte *b) {  
+  for (byte i = 0; i &lt; 4; i++) {  
+    if (a[i] != b[i]) return false; 
+  } 
+  return true; 
+}
+
+void blinkAndBeep(int ledPin, int buzzerPin, int times, int delayTime) {
+  for (int i = 0; i &lt; times; i++) {
+    digitalWrite(ledPin, HIGH);  
+    digitalWrite(buzzerPin, HIGH);  
+    delay(delayTime); 
+    digitalWrite(ledPin, LOW);  
+    digitalWrite(buzzerPin, LOW);  
+    delay(delayTime); 
+  } 
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- LCD Display Section -->
+                <section id="lcd-display" class="content-box">
+                    <h2>Interface with LCD Display</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="lcd-setup">
+                        <h3>LCD I2C Connection</h3>
+                        <div class="lcd-wiring">
+                            <div class="wiring-info">
+                                <h4>16x2 LCD (I2C) Connections:</h4>
+                                <ul>
+                                    <li>VCC → 5V</li>
+                                    <li>GND → GND</li>
+                                    <li>SDA → GPIO21</li>
+                                    <li>SCL → GPIO22</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="lcd-image">
+                                <img src="assignment 8/Picture3.png" alt="LCD Connection" class="connection-img">
+                            </div>
+                        </div>
+                        
+                        <div class="lcd-code">
+                            <h3>Complete Code with LCD</h3>
+                            <div class="code-container">
+                                <pre class="code-block"><code>#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+#include &lt;SPI.h&gt;
+#include &lt;MFRC522.h&gt;
+
+// Pin Definitions
+#define SS_PIN 5
+#define RST_PIN 4
+#define LED_PIN 2
+#define BUZZER_PIN 15
+
+// Initialize RFID and LCD
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+MFRC522 mfrc522(SS_PIN, RST_PIN);
+
+// Your Card UID
+byte knownUID[] = { 0xED, 0x0D, 0x0C, 0x32 };
+
+void setup() {
+  Serial.begin(115200);
+  SPI.begin();
+  mfrc522.PCD_Init();
+
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(BUZZER_PIN, OUTPUT);
+
+  // Initialize I2C for ESP32 and LCD
+  Wire.begin(21, 22);
+  lcd.begin();
+  lcd.backlight();
+
+  // Welcome message
+  lcd.setCursor(0, 0);
+  lcd.print("Scan your card");
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Servo Control Section -->
+                <section id="servo-control" class="content-box">
+                    <h2>Servo Motor Control</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="servo-setup">
+                        <h3>Servo Connection</h3>
+                        <div class="servo-wiring">
+                            <div class="wiring-info">
+                                <h4>SG90 Servo Motor Connections:</h4>
+                                <ul>
+                                    <li>Red Wire (VCC) → 5V</li>
+                                    <li>Brown Wire (GND) → GND</li>
+                                    <li>Orange Wire (Signal) → GPIO13</li>
+                                </ul>
+                            </div>
+                            
+                      
+                        
+                        <div class="servo-code">
+                            <h3>Servo Control Code</h3>
+                            <div class="code-container">
+                                <pre class="code-block"><code>#include &lt;ESP32Servo.h&gt;
+
+Servo gateServo;
+int servoPin = 13;
+
+void setup() {
+  gateServo.attach(servoPin);
+  gateServo.write(0); // Initial position (gate closed)
+}
+
+void openGate() {
+  gateServo.write(90); // Open gate
+  delay(3000); // Keep open for 3 seconds
+  gateServo.write(0); // Close gate
+}
+
+void loop() {
+  // Gate control logic will be integrated with RFID
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- RTC Module Section -->
+                <section id="rtc-module" class="content-box">
+                    <h2>RTC Module Integration</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="rtc-setup">
+                        <h3>DS1302 RTC Connection</h3>
+                        <div class="rtc-wiring">
+                            <div class="wiring-info">
+                                <h4>DS1302 RTC Module Connections:</h4>
+                                <ul>
+                                    <li>VCC → 3.3V</li>
+                                    <li>GND → GND</li>
+                                    <li>CLK → GPIO14</li>
+                                    <li>DAT → GPIO27</li>
+                                    <li>RST → GPIO26</li>
+                                </ul>
+                            </div>
+                            
+                         
+                        
+                        <div class="rtc-code">
+                            <h3>RTC Code Implementation</h3>
+                            <div class="code-container">
+                                <pre class="code-block"><code>#include &lt;DS1302.h&gt;
+
+// RTC pins
+const int kCePin   = 26;  // Chip Enable
+const int kIoPin   = 27;  // Input/Output
+const int kSclkPin = 14;  // Serial Clock
+
+DS1302 rtc(kCePin, kIoPin, kSclkPin);
+
+void setup() {
+  Serial.begin(115200);
+  
+  // Set the clock to run-mode, and disable the write protection
+  rtc.halt(false);
+  rtc.writeProtect(false);
+  
+  // Set initial time (only needed once)
+  // rtc.setDateTime(2024, 1, 15, 10, 30, 0);
+}
+
+String getCurrentTime() {
+  Time t = rtc.getTime();
+  
+  String timeStr = "";
+  timeStr += String(t.date) + "/";
+  timeStr += String(t.mon) + "/";
+  timeStr += String(t.year) + " ";
+  timeStr += String(t.hour) + ":";
+  timeStr += String(t.min) + ":";
+  timeStr += String(t.sec);
+  
+  return timeStr;
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Google Sheets Section -->
+                <section id="google-sheets" class="content-box">
+                    <h2>Google Sheets Integration</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="sheets-setup">
+                        <h3>Setting up Google Apps Script</h3>
+                        <div class="setup-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Create Google Sheet</h4>
+                                    <p>Create a new Google Sheet with columns: Timestamp, UID, Status</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Open Apps Script</h4>
+                                    <p>Go to Extensions → Apps Script in your Google Sheet</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Add Script Code</h4>
+                                    <div class="code-container">
+                                        <pre class="code-block"><code>function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var data = JSON.parse(e.postData.contents);
+  
+  sheet.appendRow([
+    data.timestamp,
+    data.uid,
+    data.status
+  ]);
+  
+  return ContentService
+    .createTextOutput(JSON.stringify({result: "success"}))
+    .setMimeType(ContentService.MimeType.JSON);
+}</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Deploy as Web App</h4>
+                                    <p>Deploy → New Deployment → Web app → Execute as: Me → Access: Anyone</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="esp32-code">
+                            <h3>ESP32 Code for Google Sheets</h3>
+                            <div class="code-container">
+                                <pre class="code-block"><code>#include &lt;WiFi.h&gt;
+#include &lt;HTTPClient.h&gt;
+#include &lt;ArduinoJson.h&gt;
+
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+const char* scriptURL = "YOUR_GOOGLE_SCRIPT_URL";
+
+void sendToGoogleSheets(String uid, String status, String timestamp) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    http.begin(scriptURL);
+    http.addHeader("Content-Type", "application/json");
+    
+    DynamicJsonDocument doc(1024);
+    doc["uid"] = uid;
+    doc["status"] = status;
+    doc["timestamp"] = timestamp;
+    
+    String jsonString;
+    serializeJson(doc, jsonString);
+    
+    int httpResponseCode = http.POST(jsonString);
+    
+    if (httpResponseCode > 0) {
+      String response = http.getString();
+      Serial.println("Data sent successfully");
+    } else {
+      Serial.println("Error sending data");
+    }
+    
+    http.end();
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- System Flowchart Section -->
+                <section id="flowchart" class="content-box">
+                    <h2>System Flowchart</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="flowchart-container">
+                        <img src="assignment 8/Picture7.png" alt="System Flowchart" class="flowchart-img">
+                        
+                        <div class="flowchart-steps">
+                            <h3>System Operation Flow</h3>
+                            <ol class="flow-steps">
+                                <li>System initialization and Wi-Fi connection</li>
+                                <li>Display "Scan your card" on LCD</li>
+                                <li>Wait for RFID card detection</li>
+                                <li>Read card UID when detected</li>
+                                <li>Compare UID with authorized cards</li>
+                                <li>If authorized: Grant access, open gate, log to Google Sheets</li>
+                                <li>If unauthorized: Deny access, sound alarm, log attempt</li>
+                                <li>Return to scanning mode</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Complete Integration Section -->
+                <section class="content-box">
+                    <h2>Complete System Code</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="complete-code">
+                        <div class="code-container">
+                            <pre class="code-block"><code>#include &lt;WiFi.h&gt;
+#include &lt;HTTPClient.h&gt;
+#include &lt;ArduinoJson.h&gt;
+#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+#include &lt;SPI.h&gt;
+#include &lt;MFRC522.h&gt;
+#include &lt;ESP32Servo.h&gt;
+#include &lt;DS1302.h&gt;
+
+// Pin Definitions
+#define SS_PIN 5
+#define RST_PIN 4
+#define LED_PIN 2
+#define BUZZER_PIN 15
+#define SERVO_PIN 13
+
+// RTC pins
+const int kCePin = 26;
+const int kIoPin = 27;
+const int kSclkPin = 14;
+
+// Initialize components
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+MFRC522 mfrc522(SS_PIN, RST_PIN);
+Servo gateServo;
+DS1302 rtc(kCePin, kIoPin, kSclkPin);
+
+// Network credentials
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+const char* scriptURL = "YOUR_GOOGLE_SCRIPT_URL";
+
+// Authorized UIDs
+byte authorizedUIDs[][4] = {
+  {0xED, 0x0D, 0x0C, 0x32},
+  {0x12, 0x34, 0x56, 0x78}
+};
+int numAuthorizedCards = 2;
+
+void setup() {
+  Serial.begin(115200);
+  
+  // Initialize components
+  SPI.begin();
+  mfrc522.PCD_Init();
+  
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(BUZZER_PIN, OUTPUT);
+  
+  gateServo.attach(SERVO_PIN);
+  gateServo.write(0); // Gate closed
+  
+  Wire.begin(21, 22);
+  lcd.begin();
+  lcd.backlight();
+  
+  rtc.halt(false);
+  rtc.writeProtect(false);
+  
+  // Connect to WiFi
+  WiFi.begin(ssid, password);
+  lcd.setCursor(0, 0);
+  lcd.print("Connecting WiFi");
+  
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print(".");
+  }
+  
+  Serial.println("WiFi connected!");
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("System Ready");
+  delay(2000);
+  
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Scan your card");
+}
+
+void loop() {
+  if (!mfrc522.PICC_IsNewCardPresent() || !mfrc522.PICC_ReadCardSerial()) {
+    return;
+  }
+  
+  String uidString = "";
+  bool isAuthorized = false;
+  
+  // Read UID and check authorization
+  for (byte i = 0; i &lt; mfrc522.uid.size; i++) {
+    uidString += String(mfrc522.uid.uidByte[i], HEX);
+    if (i &lt; mfrc522.uid.size - 1) uidString += ":";
+  }
+  
+  // Check if card is authorized
+  for (int i = 0; i &lt; numAuthorizedCards; i++) {
+    bool match = true;
+    for (byte j = 0; j &lt; 4; j++) {
+      if (mfrc522.uid.uidByte[j] != authorizedUIDs[i][j]) {
+        match = false;
+        break;
+      }
+    }
+    if (match) {
+      isAuthorized = true;
+      break;
+    }
+  }
+  
+  String timestamp = getCurrentTime();
+  String status = isAuthorized ? "Granted" : "Denied";
+  
+  // Display result
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Access: " + status);
+  
+  if (isAuthorized) {
+    digitalWrite(LED_PIN, HIGH);
+    digitalWrite(BUZZER_PIN, HIGH);
+    delay(500);
+    digitalWrite(LED_PIN, LOW);
+    digitalWrite(BUZZER_PIN, LOW);
+    
+    // Open gate
+    gateServo.write(90);
+    delay(3000);
+    gateServo.write(0);
+    
+  } else {
+    for (int i = 0; i &lt; 3; i++) {
+      digitalWrite(LED_PIN, HIGH);
+      digitalWrite(BUZZER_PIN, HIGH);
+      delay(200);
+      digitalWrite(LED_PIN, LOW);
+      digitalWrite(BUZZER_PIN, LOW);
+      delay(200);
+    }
+  }
+  
+  // Send to Google Sheets
+  sendToGoogleSheets(uidString, status, timestamp);
+  
+  mfrc522.PICC_HaltA();
+  mfrc522.PCD_StopCrypto1();
+  
+  delay(2000);
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Scan your card");
+}
+
+String getCurrentTime() {
+  Time t = rtc.getTime();
+  String timeStr = "";
+  timeStr += String(t.date) + "/" + String(t.mon) + "/" + String(t.year);
+  timeStr += " " + String(t.hour) + ":" + String(t.min) + ":" + String(t.sec);
+  return timeStr;
+}
+
+void sendToGoogleSheets(String uid, String status, String timestamp) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    http.begin(scriptURL);
+    http.addHeader("Content-Type", "application/json");
+    
+    DynamicJsonDocument doc(1024);
+    doc["uid"] = uid;
+    doc["status"] = status;
+    doc["timestamp"] = timestamp;
+    
+    String jsonString;
+    serializeJson(doc, jsonString);
+    
+    int httpResponseCode = http.POST(jsonString);
+    
+    if (httpResponseCode > 0) {
+      Serial.println("Data logged successfully");
+    } else {
+      Serial.println("Error logging data");
+    }
+    
+    http.end();
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Video Demo Section -->
+                <section id="video-demo" class="content-box">
+                    <h2>Video Demonstration</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="video-container">
+                        <video controls class="demo-video">
+                            <source src="assignment 8/WhatsApp Video 2025-04-19 at 4.29.08 PM.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <div class="video-description">
+                            <h3>Demo Features Shown:</h3>
+                            <ul>
+                                <li>RFID card scanning and UID reading</li>
+                                <li>LCD display showing access status</li>
+                                <li>Servo motor gate control</li>
+                                <li>LED and buzzer feedback</li>
+                                <li>Real-time logging to Google Sheets</li>
+                                <li>RTC timestamp accuracy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Assignment Navigation Section -->
+    <div class="assignment-navigation">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="assignment7.html" class="nav-btn prev-btn">
+                    Previous Assignment
+                </a>
+                
+                <a href="protosem (1).html" class="nav-btn center-btn">
+                    Back to ProtoSem
+                </a>
+                
+             
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>2025 Portfolio. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+      <script src="js/script.js"></script>
+    <script src="js/assignment8.js"></script>
+</body>
+</html>
